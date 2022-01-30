@@ -1,0 +1,16 @@
+{
+  "name": "tp-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brenda Knoska",
+  "license": "ISC",
+  "dependencies": {
+    "css.gg": "^2.0.0",
+    "install": "^0.13.0",
+    "sass": "^1.48.0"
+  }
+}

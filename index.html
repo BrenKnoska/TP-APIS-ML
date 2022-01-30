@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Dongle:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
+    <link href="/node_modules/css.gg/icons/all.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <!------------------------------------------SECCIÓN BANNER------------------------------------------->
+    <div class="contenedor-principal">
+        <div class="promo">
+            <h1 class="titulo-banner">ENCONTRA TU PRODUCTO IDEAL </h1>
+            <form id="form-de-busqueda">
+                <input type="text" id="input-de-busqueda" name="busquedaProducto" placeholder="busca un producto">
+                <div type="submit" class="search"> </div>
+            </form>
+        </div>
+        <video muted autoplay loop>
+            <source src="./src/pexels-max-fischer-5889062.mp4" type="video/mp4">
+        </video>
+        <div class="capa"></div>
+
+        <nav class="navegacion">
+            <div class="logo ">Paradis de rêve </div>
+            <i class="gg-shopping-cart"></i>
+        </nav>
+    </div>
+    <!------------------------------------------SECCIÓN FILTROS BÚSQUEDA------------------------------------------->
+    <main>
+
+        <div id="filtro-de-busqueda">
+            <h2 class="texto-de-filtros"> FILTRAR POR BÚSQUEDA</h2>
+            <label class="label-filtros">UBICACIÓN</label>
+            <select class="select-ubicacion">
+                <option value="TUxBUENBUGw3M2E1">Capital Federal</option>
+                <option value="TUxBUEdSQXJlMDNm">Bs As GBA Sur</option>
+                <option value="TUxBUEdSQWU4ZDkz">Bs As GBA Norte</option>
+                <option value="TUxBUEdSQWVmNTVm">Bs As GBA Oeste</option>
+                <option value="TUxBUENBVGFiY2Fm">Catamarca</option>
+                <option value="TUxBUENIQW8xMTNhOA">Chaco</option>
+                <option value="TUxBUEVOVHMzNTdm">Entre Ríos</option>
+                <option value="TUxBUEZPUmE1OTk5">Formosa</option>
+                <option value="TUxBUEpVSnk3YmUz">Jujuy</option>
+                <option value="TUxBUExBWmE1OWMy">La Pampa</option>
+                <option value="TUxBUExBWmEyNzY0">La Rioja</option>
+                <option value="TUxBUE5FVW4xMzMzNQ">Neuquén</option>
+                <option value="TUxBUFNBTmU5Nzk2">Santa Fé</option>
+                <option value="TUxBUENPUmFkZGIw">Córdoba</option>
+            </select>
+
+            <label>ENVÍO</label>
+            <select id="select-envios">
+                <option value="mercadoenvios">Mercado Envios</option>
+                <option value="fulfillment">Envio FULL</option>
+            </select>
+
+            <label>CONDICIÓN</label>
+            <select id="select-condicion">
+                <option value="2230284">Nuevo</option>
+                <option value="2230581">Usado</option>
+            </select>
+        </div>
+
+        <div class="lista-productos">
+            <!--          
+            <div class="container">
+                <div class="overlay">
+                    <div class="items"></div>
+                    <div class="items head">
+                        <p>Flower Embroidery Hoop Art</p>
+                        <hr>
+                    </div>
+                    <div class="items price">
+                        <p class="old">$699</p>
+                        <p class="new">$345</p>
+                    </div>
+                    <div class="items cart">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>ADD TO CART</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="overlay">
+                    <div class="items"></div>
+                    <div class="items head">
+                        <p>Flower Embroidery Hoop Art</p>
+                        <hr>
+                    </div>
+                    <div class="items price">
+                        <p class="old">$699</p>
+                        <p class="new">$345</p>
+                    </div>
+                    <div class="items cart">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>ADD TO CART</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="overlay">
+                    <div class="items"></div>
+                    <div class="items head">
+                        <p>Flower Embroidery Hoop Art</p>
+                        <hr>
+                    </div>
+                    <div class="items price">
+                        <p class="old">$699</p>
+                        <p class="new">$345</p>
+                    </div>
+                    <div class="items cart">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>ADD TO CART</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="overlay">
+                    <div class="items"></div>
+                    <div class="items head">
+                        <p>Flower Embroidery Hoop Art</p>
+                        <hr>
+                    </div>
+                    <div class="items price">
+                        <p class="old">$699</p>
+                        <p class="new">$345</p>
+                    </div>
+                    <div class="items cart">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>ADD TO CART</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="overlay">
+                    <div class="items"></div>
+                    <div class="items head">
+                        <p>Flower Embroidery Hoop Art</p>
+                        <hr>
+                    </div>
+                    <div class="items price">
+                        <p class="old">$699</p>
+                        <p class="new">$345</p>
+                    </div>
+                    <div class="items cart">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>ADD TO CART</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="overlay">
+                    <div class="items"></div>
+                    <div class="items head">
+                        <p>Flower Embroidery Hoop Art</p>
+                        <hr>
+                    </div>
+                    <div class="items price">
+                        <p class="old">$699</p>
+                        <p class="new">$345</p>
+                    </div>
+                    <div class="items cart">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>ADD TO CART</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="overlay">
+                    <div class="items"></div>
+                    <div class="items head">
+                        <p>Flower Embroidery Hoop Art</p>
+                        <hr>
+                    </div>
+                    <div class="items price">
+                        <p class="old">$699</p>
+                        <p class="new">$345</p>
+                    </div>
+                    <div class="items cart">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>ADD TO CART</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="overlay">
+                    <div class="items"></div>
+                    <div class="items head">
+                        <p>Flower Embroidery Hoop Art</p>
+                        <hr>
+                    </div>
+                    <div class="items price">
+                        <p class="old">$699</p>
+                        <p class="new">$345</p>
+                    </div>
+                    <div class="items cart">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>ADD TO CART</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="overlay">
+                    <div class="items"></div>
+                    <div class="items head">
+                        <p>Flower Embroidery Hoop Art</p>
+                        <hr>
+                    </div>
+                    <div class="items price">
+                        <p class="old">$699</p>
+                        <p class="new">$345</p>
+                    </div>
+                    <div class="items cart">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>ADD TO CART</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="overlay">
+                    <div class="items"></div>
+                    <div class="items head">
+                        <p>Flower Embroidery Hoop Art</p>
+                        <hr>
+                    </div>
+                    <div class="items price">
+                        <p class="old">$699</p>
+                        <p class="new">$345</p>
+                    </div>
+                    <div class="items cart">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>ADD TO CART</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="overlay">
+                    <div class="items"></div>
+                    <div class="items head">
+                        <p>Flower Embroidery Hoop Art</p>
+                        <hr>
+                    </div>
+                    <div class="items price">
+                        <p class="old">$699</p>
+                        <p class="new">$345</p>
+                    </div>
+                    <div class="items cart">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>ADD TO CART</span>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </main>
+    <footer>
+        <p>Hecho con 💛 por Brenda Knoska</p>
+
+    </footer>
+    <script src="index.js"></script>
+</body>
+
+</html>
