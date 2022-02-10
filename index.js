@@ -7,6 +7,10 @@ const modal = document.querySelector(".modal")
 const imagenProducto = document.querySelector(".container")
 const overlay = document.querySelector(".overlay")
 const apiMLA = 'https://api.mercadolibre.com/sites/MLA/search?';
+// --------------------------------FILTROS---------------------------------------------
+const seleccionarUbicacion = document.querySelector(".select-ubicacion")
+const seleccionarEnvios = document.querySelector("#select-envios")
+const seleccionarCondicion = document.querySelector("#select-condicion")
 
 form.onsubmit = (e) => {
   const nombreProducto = e.target.elements.busquedaProducto.value;
@@ -70,7 +74,7 @@ function mostrarInformacion(data) {
   <div class="card-detalle">
  
 
-  <div class="card-detalle-imagen" style='background: url(${data.pictures[0].url});'>   </div>
+  <div class="card-detalle-imagen" style='background: url(${data.pictures[0].url});'></div>
 
       <div class="card-detalle-informacion">
      
@@ -106,3 +110,30 @@ const mostrarDetallesProducto = (id_producto) => {
     });
 
 }
+
+// ----------------------------------------------FILTROS--------------------------------------
+
+
+const buscarProductos = (producto, direccion, envios, condicion) => {
+  fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${producto}&state=${direccion}&shipping=${envios}&ITEM_CONDITION=${condicion}`)
+    .then(res => {
+      res.json().then(data => {
+        HTMLproducts(data.results)
+      })
+    });
+
+}
+
+seleccionarUbicacion.onchange = () => {
+  buscarProductos(inputBusqueda.value, seleccionarUbicacion.value, seleccionarEnvios.value, seleccionarCondicion.value)
+}
+seleccionarEnvios.onchange = () => {
+  buscarProductos(inputBusqueda.value, seleccionarUbicacion.value, seleccionarEnvios.value, seleccionarCondicion.value)
+
+}
+seleccionarCondicion.onchange = () => {
+  buscarProductos(inputBusqueda.value, seleccionarUbicacion.value, seleccionarEnvios.value, seleccionarCondicion.value)
+
+}
+
+
