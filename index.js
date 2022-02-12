@@ -25,20 +25,21 @@ const mostrarDetallesProducto = (id_producto) => {
 
 
 const busquedaPorProducto = () => {
-  fetch(`${apiMLA}q=${inputBusqueda.value!=""?inputBusqueda.value:'maquillaje'}&state=${seleccionarUbicacion.value}&shipping=${seleccionarEnvios.value}&item_condition=${seleccionarCondicion.value}`)
-  .then(res => {res.json()
-    .then(data => {
-      listaProductosHtml(data.results);
-    })
-  });
+  fetch(`${apiMLA}q=${inputBusqueda.value != "" ? inputBusqueda.value : 'maquillaje'}&state=${seleccionarUbicacion.value}&shipping=${seleccionarEnvios.value}&item_condition=${seleccionarCondicion.value}`)
+    .then(res => {
+      res.json()
+        .then(data => {
+          listaProductosHtml(data.results);
+        })
+    });
 }
 
 busquedaPorProducto()
-document.onload=()=>busquedaPorProducto()
-form.onsubmit = (e) => { e.preventDefault(); busquedaPorProducto();}
-seleccionarUbicacion.onchange=()=>{busquedaPorProducto();}
-seleccionarEnvios.onchange=()=>{busquedaPorProducto();}
-seleccionarCondicion.onchange=()=>{busquedaPorProducto();}
+document.onload = () => busquedaPorProducto()
+form.onsubmit = (e) => { e.preventDefault(); busquedaPorProducto(); }
+seleccionarUbicacion.onchange = () => { busquedaPorProducto(); }
+seleccionarEnvios.onchange = () => { busquedaPorProducto(); }
+seleccionarCondicion.onchange = () => { busquedaPorProducto(); }
 
 
 const listaProductosHtml = (data) => {
@@ -72,34 +73,36 @@ const listaProductosHtml = (data) => {
   listaProductos.innerHTML = products;
 
 }
+
 function mostrarInformacion(data) {
+  debugger
 
   const cardInfo = `    
-  <div class="contenedor-card-detalle">
-  <div class="card-detalle">
+   <div class="tarjeta-detalle">
+        
+        <i class="gg-close-r" onclick="cerrarModal()" ></i>
+   
+        <div class="foto" > 
+        <img src="${data.thumbnail}"/>
+        </div>
  
-
-  <div class="card-detalle-imagen" style='background: url(${data.pictures.length > 0 ? data.pictures[0].url : ''});'></div>
-
-      <div class="card-detalle-informacion">
-     
-          <p>${data.title}</p>
-          <p>${data.price} ARS</p> 
-
-      </div>
+        <div class="description">
+              <h4>${data.title}</h4> 
+              <h1>${data.price} ARS$</h1> 
+              <button>COMPRA AHORA</button>
+              <button>AÑADIR A FAVORITOS</button>
+        </div>
   </div>
-  
-  <i class="gg-close-r" onclick="cerrarModal()" ></i>
-
-
-  </div>
+ 
     
-    `
-  modal.style.display = "block";
-  modalProducto.innerHTML = cardInfo;
+     
+     `
+  modal.style.display = "flex";
+  modal.innerHTML = cardInfo;
 };
-
 
 const cerrarModal = () => {
   modal.style.display = "none";
 }
+
+

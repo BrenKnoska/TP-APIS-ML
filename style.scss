@@ -1,3 +1,4 @@
+@import "card.scss";
 $color-primario  : #111927;
 $color-secundario: #ffffff;
 $color-terciario : #F6B5AB;
@@ -441,16 +442,12 @@ select {
   }
 
   .card-detalle-imagen {
-    width                : 50%;
-    height               : 90%;
-    background-attachment: fixed;
+    width : 50%;
+    height: 90%;
 
   }
 
-  .card-detalle-informacion {
-   
-
-  }
+  .card-detalle-informacion {}
 }
 
 .modal {
@@ -459,15 +456,18 @@ select {
   z-index : 1000;
   left    : 0;
   top     : 0;
-  width   : 100%;
+  width   : 100%  ;
   height  : 100%;
-  overflow: auto;
+
 
   .gg-close-r {
-    --ggs           : 2;
+    --ggs           : 1;
+    margin          : 1%;
     display         : block;
     z-index         : 1;
-    background-color: rgb(136, 0, 79);
+    float           : right;
+    background-color: rgba(248, 248, 248, 0);
+    color           : black;
     cursor          : pointer;
 
 
