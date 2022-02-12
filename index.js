@@ -11,6 +11,8 @@ const inputBusqueda = document.querySelector('#input-de-busqueda');
 const seleccionarUbicacion = document.querySelector(".select-ubicacion");
 const seleccionarEnvios = document.querySelector("#select-envios");
 const seleccionarCondicion = document.querySelector("#select-condicion");
+const totalProductosEncontrados = document.querySelector(".total-productos-encontrados");
+
 // ----------------------------------------------FILTROS-------------------------------//
 
 const mostrarDetallesProducto = (id_producto) => {
@@ -23,13 +25,15 @@ const mostrarDetallesProducto = (id_producto) => {
     });
 }
 
+const ordernarBusquedaAlfabeticamente = (resultadoBusqueda) => resultadoBusqueda.sort((a, b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0));
 
 const busquedaPorProducto = () => {
   fetch(`${apiMLA}q=${inputBusqueda.value != "" ? inputBusqueda.value : 'maquillaje'}&state=${seleccionarUbicacion.value}&shipping=${seleccionarEnvios.value}&item_condition=${seleccionarCondicion.value}`)
     .then(res => {
       res.json()
         .then(data => {
-          listaProductosHtml(data.results);
+          let productosOrdenados = ordernarBusquedaAlfabeticamente(data.results);
+          listaProductosHtml(productosOrdenados);
         })
     });
 }
@@ -42,12 +46,14 @@ seleccionarEnvios.onchange = () => { busquedaPorProducto(); }
 seleccionarCondicion.onchange = () => { busquedaPorProducto(); }
 
 
+
 const listaProductosHtml = (data) => {
 
   const products = data.reduce((acc, i) => {
 
     return acc + `    
-    <div class="container" onclick="mostrarDetallesProducto('${i.id}')"  style='background: url(${i.thumbnail});'>
+    <div class="imagen-producto-lista" style='background: url(${i.thumbnail}); '>
+    <div class="container" onclick="mostrarDetallesProducto('${i.id}')" >
 
     <div class="overlay">
         <div class="items"></div>
@@ -66,24 +72,24 @@ const listaProductosHtml = (data) => {
             <span> Ver detalle del producto </span>
         </div>
     </div>
-</div>   `
+</div> 
+</div>
+`
 
   }, "")
-
+  totalProductosEncontrados.innerHTML =  `Productos encontrados:${data.length} `;
   listaProductos.innerHTML = products;
 
 }
 
 function mostrarInformacion(data) {
-  debugger
-
   const cardInfo = `    
    <div class="tarjeta-detalle">
         
         <i class="gg-close-r" onclick="cerrarModal()" ></i>
    
         <div class="foto" > 
-        <img src="${data.thumbnail}"/>
+        <img src="${data.thumbnail}" width="300px"/>
         </div>
  
         <div class="description">
@@ -94,7 +100,7 @@ function mostrarInformacion(data) {
         </div>
   </div>
  
-    
+  
      
      `
   modal.style.display = "flex";

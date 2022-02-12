@@ -1,6 +1,8 @@
 @import "card.scss";
+
 $color-primario  : #111927;
 $color-secundario: #ffffff;
+$bg              : #FEF5DF;
 $color-terciario : #F6B5AB;
 $fuente-marca    : 'Dancing Script',
 cursive;
@@ -12,6 +14,13 @@ sans-serif;
 $fuente-sombra-texto:0px -4px 2px rgba(0, 0, 0, 0.6);
 $fuente-tamaño-p    : 34px;
 
+
+* {
+  margin    : 0;
+  padding   : 0;
+  box-sizing: content-box;
+}
+
 @mixin sombra-caja {
   backdrop-filter        : blur(12px) saturate(124%);
   -webkit-backdrop-filter: blur(12px) saturate(124%);
@@ -19,13 +28,6 @@ $fuente-tamaño-p    : 34px;
   border-radius          : 12px;
   border                 : 1px solid rgba(255, 255, 255, 0.125);
 
-}
-
-
-* {
-  margin    : 0;
-  padding   : 0;
-  box-sizing: content-box;
 }
 
 @mixin sombra-tipografia {
@@ -250,7 +252,6 @@ $fuente-tamaño-p    : 34px;
 
 }
 
-$bg: #FEF5DF;
 
 body {
   box-sizing      : border-box;
@@ -261,48 +262,48 @@ body {
 }
 
 .container {
-  width                : 400px;
-  height               : 500px;
-  flex-wrap            : wrap;
-  margin               : auto;
-  margin               : 3%;
-  background-color     : black;
-  background-position  : 50% 50%;
-  /* Sets reference point to scale from */
-  background-size      : cover;
-  background-repeat    : no-repeat;
-  background-attachment: fixed;
-  cursor               : pointer;
-
+  width             : 400px;
+  height            : 500px;
+  flex-wrap         : wrap;
+  cursor            : pointer;
   -webkit-box-shadow: 0 0 5px #000;
   box-shadow        : 0 0 5px #000;
+
+}
+
+.imagen-producto-lista {
+  margin: 4%;
+  object-fit: contain;
+  background-size: contain !important;
+  background-position: center !important;
 }
 
 .overlay {
-  width : 100%;
-  height: 100%;
-
-  display              : grid;
-  grid-template-columns: 1fr;
-  grid-template-rows   : 1fr 2fr 2fr 1fr;
-
-  background: rgba(77, 77, 77, .9);
-  color     : $bg;
-  opacity   : 0;
-  transition: all 0.5s;
-
-  font-family: 'Playfair Display', serif;
+  width          : 100%;
+  height         : 100%;
+  display        : flex;
+  flex-direction : column;
+  align-items    : flex-end;
+  background     : rgba(77, 77, 77, 0.9);
+  color          : #FEF5DF;
+  opacity        : 0;
+  transition     : all 0.5s;
+  font-family    : "Playfair Display", serif;
+  flex-wrap      : nowrap;
+  justify-content: center;
+  align-content  : center;
+  margin         : 0;
 }
 
 
 .items {
-  padding-left  : 20px;
+  padding-right : 20px;
   letter-spacing: 3px;
 }
 
 .head {
-  font-size  : 30px;
-  line-height: 40px;
+  font-size: 30px;
+
 
   transform : translateY(40px);
   transition: all 0.7s;
@@ -324,16 +325,10 @@ body {
 
 .price {
   font-size  : 22px;
-  line-height: 10px;
   font-weight: bold;
   opacity    : 0;
   transform  : translateY(40px);
   transition : all 0.7s;
-
-  .old {
-    text-decoration: line-through;
-    color          : lighten(rgb(77, 77, 77), 40%);
-  }
 }
 
 .cart {
@@ -348,9 +343,6 @@ body {
     font-size: 16px;
   }
 
-  span {
-    margin-left: 10px;
-  }
 }
 
 .container:hover .overlay {
@@ -401,6 +393,18 @@ main {
   text-shadow   : $fuente-sombra-texto;
   letter-spacing: 20px;
   margin        : 2%;
+
+  .total-productos-encontrados {
+    display   : flex;
+    margin-top: 1%;
+  }
+
+  .texto-de-filtros {
+    margin-bottom: 2%;
+    color        : #d75658;
+  }
+
+
 }
 
 
@@ -424,12 +428,10 @@ select {
   justify-content: center;
   transform      : translateY(50%);
 
-
-
   .card-detalle {
-    width                  : 40vw;
-    height                 : 34vh;
-    background-color       : rgba(255, 255, 255, 0.835);
+    width : 40vw;
+    height: 34vh;
+
     display                : flex;
     justify-content        : space-around;
     backdrop-filter        : blur(17px) saturate(173%);
@@ -456,7 +458,7 @@ select {
   z-index : 1000;
   left    : 0;
   top     : 0;
-  width   : 100%  ;
+  width   : 100%;
   height  : 100%;
 
 
@@ -469,7 +471,6 @@ select {
     background-color: rgba(248, 248, 248, 0);
     color           : black;
     cursor          : pointer;
-
-
   }
+
 }
